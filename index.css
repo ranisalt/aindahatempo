@@ -1,0 +1,13 @@
+html, body { background: #000; color: #fff; }
+
+.viewport {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
+
+.title { font-size: 6vw; text-transform: uppercase; }
+.countdown { font-size: 12vw; font-weight: 700; }
