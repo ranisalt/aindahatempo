@@ -10,6 +10,30 @@
     return Math.floor(num).toFixed().padStart(width, '0')
   }
 
+  // https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css
+  // ¯\_(ツ)_/¯
+  function wrapLetters($element) {
+    for (var i = 0; i < $element.childNodes.length; i++) {
+      var $child = $element.childNodes[i];
+
+      if ($child.nodeType === Node.TEXT_NODE) {
+        var $wrapper = document.createDocumentFragment();
+
+        for (var i = 0; i < $child.nodeValue.length; i++) {
+          var $char = document.createElement('span');
+          $char.className = 'char';
+          $char.textContent = $child.nodeValue.charAt(i);
+
+          $wrapper.appendChild($char);
+        }
+
+        $element.replaceChild($wrapper, $child);
+      } else if ($child.nodeType === Node.ELEMENT_NODE) {
+        wrapLetters($child);
+      }
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', ev => {
     const title = document.querySelector('.title'),
       countdown = document.querySelector('.countdown')
@@ -36,6 +60,7 @@
         msecs = leadingZero(distance % msPerSec, 3)
 
       countdown.innerHTML = `${days}:${hours}:${mins}:${secs}:${msecs}`
+      wrapLetters(countdown)
     }
 
     window.requestAnimationFrame(updateCountdown)
