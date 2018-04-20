@@ -1,5 +1,15 @@
 html, body { background: #000; color: #fff; }
 
+@font-face {
+    font-family: 'urban_brushregular';
+    src: url('fonts/urban_brush-webfont.woff2') format('woff2'),
+         url('fonts/urban_brush-webfont.woff') format('woff'),
+         url('fonts/urban_brush-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .viewport {
     align-items: center;
     display: flex;
@@ -9,5 +19,5 @@ html, body { background: #000; color: #fff; }
     width: 100vw;
 }
 
-.title { font-size: 6vw; text-transform: uppercase; }
-.countdown { font-size: 12vw; font-weight: 700; }
+.title { font-family: 'urban_brushregular'; font-size: 12vw; text-transform: uppercase; }
+.countdown { font-family: 'urban_brushregular'; font-size: 18vw; font-weight: 700; }
