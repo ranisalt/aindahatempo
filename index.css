@@ -23,5 +23,5 @@ html, body {
 }
 
 .title { font-size: 12vw; text-transform: uppercase; }
-.countdown { font-size: 18vw; font-weight: 700; }
+.countdown { font-size: 18vw; }
 .countdown > span { display: inline-block; text-align: center; width: 6vw; }
