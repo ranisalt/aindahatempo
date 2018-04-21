@@ -35,7 +35,8 @@
         secs = leadingZero((distance % msPerMin) / msPerSec),
         msecs = leadingZero(distance % msPerSec, 3)
 
-      countdown.innerHTML = `${days}:${hours}:${mins}:${secs}:${msecs}`
+      const s = `${days}:${hours}:${mins}:${secs}:${msecs}`
+      countdown.innerHTML = s.split('').map(c => `<span>${c}</span>`).join('')
     }
 
     window.requestAnimationFrame(updateCountdown)
